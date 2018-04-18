@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Goal a Sports Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+  <title>Goal</title>
   <!-- custom-theme -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -126,11 +126,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Navigation -->
   <div class="topnav" id="myTopnav">
     <a href="#home" style="font-size:24px" style="word-spacing: 70px">GOAL</a>
-    <a href="#news">Home</a>
-    <a href="#contact">Gallery</a>
-    <a href="#about">Article</a>
-    <a href="#about">Ranking</a>
-    <a href="#about">Fifa For Women</a>
+	<a href="home.html">Home</a>
+		<a href="gallery.html">Gallery</a>
+		<a href="article.html">Article</a>
+		<a href="fifawomen.html">Fifa For Women</a>
     <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
   </div>
   <script>
@@ -172,26 +171,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="images/10.jpg" alt="">
+        <img class="img-fluid rounded" src="images/women.jpg" alt="">
 
         <hr>
 
         <!-- Post Content -->
-		<p>Top 10 promising players to look out for..</p>
-		<h3>10 - Timo Werner (Germany):<h3>
-		<p>
-Timo Werner might only be 21-years old, but he has already proved his worth by guiding Germany's national team to Confederations Cup triumph in June. Perhaps, a sign of what could happen next year, as the Germans make their comeback to Russian capital Moscow, for the World Cup this time.
-Werner will be looking to challenge for another Golden Boot award, and who can blame him for being ambitious, when he possesses such fascinating finishing skills and when he is the focal point of Germany's attack.  They are known to dominate games and to never leave their main striker short of clear-cut goal-scoring chances. Werner has already scored 5 Bundesliga goals in 6 appearances this season
-</p> 
-<h3>9 - Paulo Dybala (Argentina):</h3>
+<h3>INTRODUCTION</h3>
 <p>
-Paolo Dybala is so ridiculously good, that it is so easy to forget the fact that he is only 23-years old and still has a lot of room for development. The Argentinian has already won the hearts of Juventus fanatics, as well as that of all admirers of Italian Calcio.
-In 7 league games this season, Dybala has already found the net on 10 different occasions. These stats are no doubt, Messi-esque ones. And it is precisely Lionel Messi, to whom the genius of the young rising Argentine, is being compared to.
-With his movement, dribbling, passing and shooting technique, Paolo is reminiscent of his idol and is being compared to him week in, week out.
-While he is admittedly still not in contention to be compared to Cristiano Ronaldo and Lionel Messi, if the Juventus star continues displaying such performances until the end of the season, then he will no doubt be closer than ever to reach this category.
-Argentina's national team is in desperate need for a new hero to emerge out of the blue and help them get out of their current miserable state.
+The FIFA Women's World Cup is an international football competition contested by the senior women's national teams of the members of Fédération Internationale de Football Association (FIFA), the sport's global governing body. The competition has been held every four years since 1991, when the inaugural tournament, then called the Women's World Championship, was held in China.
 </p>
-      
+<p>
+Under the tournament's current format, national teams vie for 23 slots in a three-year qualification phase. (The host nation's team is automatically entered as the 24th slot.) The tournament proper, alternatively called the World Cup Finals, is contested at venues within the host nation(s) over a period of about one month.
+<p>
+The seven FIFA Women's World Cup tournaments have been won by four different national teams, including the United States, which beat Norway 2–1 in the first final. The current champion is the United States, after winning their third title in the 2015 FIFA Women's World Cup.
+HISTORY
+In 1988 – 58 years after the first Men's FIFA World Cup tournament in 1930 and approximately 17 years after the FA ban on women's football was eliminated in 1971— FIFA hosted an invitational in China as a test to see if a global women's World Cup was feasible. Twelve national teams took part in the competition – four from UEFA, three from AFC, two from CONCACAF and one from CONMEBOL, CAF and OFC. The tournament saw European champion Norway defeat Sweden 1–0 in the final to win the tournament, while Brazil clinched third place by beating the hosts in a penalty shootout. The competition was deemed a success and on 30 June FIFA approved the establishment of an official World Cup, which was to take place in 1991 again in China.Again, twelve teams competed, this time culminating in the United States beating Norway in the final 2-1.
+</p>
+<p>
+In the 1999 edition, one of the most famous moments of the tournament was American defender Brandi Chastain's victory celebration after scoring the Cup-winning penalty kick against China. She took off her jersey and waved it over her head (as men frequently do), showing her muscular torso as she celebrated. The 1999 final in the Rose Bowl in Pasadena, California had an attendance of 90,185, a world record for a women's sporting event.
+The 1999 and 2003 Women's World Cups were both held in the United States; in 2003 China was supposed to host it, but the tournament was moved because of SARS. As compensation, China retained its automatic qualification to the 2003 tournament as host nation, and was automatically chosen to host the 2007 FIFA Women's World Cup. Germany hosted the 2011 FIFA Women's World Cup, as decided by vote in October 2007. In March 2011, FIFA awarded Canada the right to host the 2015 FIFA Women's World Cup. The 2015 edition saw the field expand from 16 to 24 teams.
+During the 2015 FIFA Women's World Cup, both Formiga of Brazil and Homare Sawa of Japan made a record of appearing in six World Cups, a feat that had never been achieved before by either female or male players. Christie Rampone is the oldest player to ever play in a Women's World Cup match, at the age of 40 years.
+In March 2015, FIFA awarded France the right to host the 2019 FIFA Women's World Cup over South Korea. The tournament will begin on 1 June 2019 and the final will be played on 30 June 2019; both the opening and final matches will be played at Parc Olympique Lyonnais, a venue with a capacity of 58,000 in the Lyon suburb of Décines.
+</p>
+<h3>FORMAT</h3>
+<p><h4>
+Qualification
+</h4>
+</p>
+<p>
+Qualifying tournaments are held within the six FIFA continental zones (Africa, Asia, North and Central America and Caribbean, South America, Oceania, Europe), and are organised by their respective confederations: Confederation of African Football (CAF), Asian Football Confederation (AFC), Confederation of North, Central America and Caribbean Association Football (CONCACAF), South American Football Confederation CONMEBOL, Oceania Football Confederation (OFC), and Union of European Football Associations UEFA). For each tournament, FIFA decides beforehand the number of berths awarded to each of the continental zones, based on the relative strength of the confederations' teams. The hosts of the World Cup receive an automatic berth in the finals. Since the 2015 FIFA Women's World Cup, the number of finalists increased from 16 to 24.
+</p>
+<h4>Final tournament</h4>
+<p>The final tournament has featured between twelve and twenty-four national teams competing over about one month in the host nation(s). There are two stages: the group stage followed by the knockout stage.
+In the group stage, teams are drawn into groups of four teams each. Each group plays a round-robin tournament, in which each team is scheduled for three matches against other teams in the same group. The last round of matches of each group is scheduled at the same time to preserve fairness among all four teams. In the 2015 24-team format, the two teams finishing first and second in each group and the four best teams among those ranked third qualify for the round of 16, also called the knockout stage. Points are used to rank the teams within a group. Since 1994, three points have been awarded for a win, one for a draw and none for a loss (before, winners received two points).
+The ranking of each team in each group is determined as follows:
+ 1. Greatest number of points in group matches
+ 2. Greatest goal difference in group matches
+ 3. Greatest number of goals scored in group matches
+If more than one team remain level after applying the above criteria, their ranking will be determined as follows:
+Greatest number of points in head-to-head matches among those teams
+Greatest goal difference in head-to-head matches among those teams
+Greatest number of goals scored in head-to-head matches among those teams
+If any of the teams above remain level after applying the above criteria, their ranking will be determined by the drawing of lots
+The knockout stage is a single-elimination tournament in which teams play each other in one-off matches, with extra time and penalty shootouts used to decide the winner if necessary. It begins with the round of 16. This is followed by the quarter-finals, semi-finals, the third-place match (contested by the losing semi-finalists), and the final.
+</p>
 
 </div>
 
@@ -328,12 +351,10 @@ Argentina's national team is in desperate need for a new hero to emerge out of t
       <div class="row">
         <div class="col-md-6 w3-footer-nav">
           <div class="links">
-            <a href="index.html">Home</a>
-            <a href="#about">About</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#team">Team</a>
-            <a href="#Winners">Testimonials</a>
-            <a href="#contact">Contact</a>
+       	<a href="home.html">Home</a>
+		<a href="gallery.html">Gallery</a>
+		<a href="article.html">Article</a>
+		<a href="fifawomen.html">Fifa For Women</a>
           </div>
         </div>
         <div class="col-md-6 w3-footer-copy">
@@ -375,7 +396,7 @@ Argentina's national team is in desperate need for a new hero to emerge out of t
 
   <!-- requried-jsfiles-for owl -->
   <script src="js/owl.carousel.js"></script>
-<script>
+ <script>
   $(document).ready(function () {
     $('#search').click(function () {
       var id = $('#employee_list').val();
@@ -500,6 +521,7 @@ Argentina's national team is in desperate need for a new hero to emerge out of t
 
   }
 </script>
+  <!-- //here ends scrolling icon -->
 </body>
 
 </html>

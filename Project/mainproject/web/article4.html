@@ -217,64 +217,125 @@ If any of the teams above remain level after applying the above criteria, their 
 The knockout stage is a single-elimination tournament in which teams play each other in one-off matches, with extra time and penalty shootouts used to decide the winner if necessary. It begins with the round of 16. This is followed by the quarter-finals, semi-finals, the third-place match (contested by the losing semi-finalists), and the final.
 </p>
 
+</div>
 
-      </div>
+<!-- Sidebar Widgets Column -->
+<div class="col-md-4">
 
-      <!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
-
-        <!-- Search Widget -->
+  <!-- Search Widget -->
 
 
-        <!-- Categories Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">RANKING</h5>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <!--<li>
-                    <a href="#">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#">Freebies</a>
-                  </li>
-                </ul>
+  <!-- Categories Widget -->
+  <div class="card my-4">
+    <h5 class="card-header">RANKINGS</h5>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-6">
+          <ul class="list-unstyled mb-0">
+            <!-- <li>
+                                    <a href="#">Web Design</a>
+                                </li>
+                                <li>
+                                    <a href="#">HTML</a>
+                                </li>
+                                <li>
+                                    <a href="#">Freebies</a>
+								</li>-->
+            <div class="container" style="width:900px;">
+
+              <h5>Top 10 Players</h5>
+              <br />
+              <div class="row">
+                <div class="col-md-4">
+                  <select name="employee_list" id="employee_list" class="form-control">
+                    <option value="">Select Player</option>
+                    <?php 
+								      while($row = mysqli_fetch_array($result))
+								      {
+								       echo '<option value="'.$row["id"].'">'.$row["name"].'</option>';
+								      }
+								      ?>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <button type="button" name="search" id="search" class="btn btn-info">Search</button>
+                </div>
               </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#">CSS</a>
-                  </li>
-                  <li>
-                    <a href="#">Tutorials</a>
-                  </li>-->
-                </ul>
+              <br />
+              <div class="table-responsive" id="employee_details" style="display:none">
+                <table class="table table-bordered">
+                  <tr>
+                    <td width="10%" align="right">
+                      <b>Name</b>
+                    </td>
+                    <td width="90%">
+                      <span id="employee_name"></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="10%" align="right">
+                      <b>Teams</b>
+                    </td>
+                    <td width="90%">
+                      <span id="employee_address"></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="10%" align="right">
+                      <b>Position</b>
+                    </td>
+                    <td width="90%">
+                      <span id="employee_designation"></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="10%" align="right">
+                      <b>Age</b>
+                    </td>
+                    <td width="90%">
+                      <span id="employee_age"></span>
+                    </td>
+                  </tr>
+                </table>
               </div>
+
             </div>
-          </div>
+          </ul>
         </div>
-
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">NEWS</h5>
-          <div class="card-body">
-            <!--You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!-->          
-		</div>
+        <div class="col-lg-6">
+          <ul class="list-unstyled mb-0">
+            <!--<li>
+                                    <a href="#">JavaScript</a>
+                                </li>
+                                <li>
+                                    <a href="#">CSS</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tutorials</a>
+                                </li>-->
+          </ul>
         </div>
-
       </div>
-
     </div>
-    <!-- /.row -->
-
   </div>
+
+  <!-- Side Widget -->
+  <div class="card my-4">
+    <h5 class="card-header">NEWS</h5>
+    <div class="card-body">
+      <!--You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!-->
+      <div id="map_wrapper">
+        <div id="map_canvas" class="mapping"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+<!-- /.row -->
+
+</div>
   <!-- /.container -->
 
   </div>
@@ -338,52 +399,131 @@ The knockout stage is a single-elimination tournament in which teams play each o
 
   <!-- requried-jsfiles-for owl -->
   <script src="js/owl.carousel.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#owl-demo2").owlCarousel({
-        items: 1,
-        lazyLoad: false,
-        autoPlay: true,
-        navigation: false,
-        navigationText: false,
-        pagination: true,
+ script>
+  $(document).ready(function () {
+    $('#search').click(function () {
+      var id = $('#employee_list').val();
+      if (id != '') {
+        $.ajax({
+          url: "fetch.php",
+          method: "POST",
+          data: { id: id },
+          dataType: "JSON",
+          success: function (data) {
+            $('#employee_details').css("display", "block");
+            $('#employee_name').text(data.name);
+            $('#employee_address').text(data.address);
+            $('#employee_designation').text(data.designation);
+            $('#employee_age').text(data.age);
+          }
+        })
+      }
+      else {
+        alert("Please Select Employee");
+        $('#employee_details').css("display", "none");
+      }
+    });
+  });
+</script>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function ($) {
+    $(".scroll").click(function (event) {
+      event.preventDefault();
+      $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+    });
+  });
+</script>
+<!-- start-smoth-scrolling -->
+<!-- for bootstrap working -->
+<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+  $(document).ready(function () {
+    /*
+      var defaults = {
+      containerID: 'toTop', // fading element id
+      containerHoverID: 'toTopHover', // fading element hover id
+      scrollSpeed: 1200,
+      easingType: 'linear' 
+      };
+    */
+
+    $().UItoTop({ easingType: 'easeOutQuart' });
+
+  });
+</script>
+<script>
+  jQuery(function ($) {
+    // Asynchronously Load the map API 
+    var script = document.createElement('script');
+    script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyB5SfpAVmmvp2q9PU7Zk-RBoIUDUnafX1c&callback=initialize";
+    document.body.appendChild(script);
+  });
+
+  function initialize() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+      mapTypeId: 'roadmap'
+    };
+
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    map.setTilt(45);
+
+    // Multiple Markers
+    var markers = [
+      ['russia', 62.333724, 93.244438],
+      ['Stadion Saint Petersburg, russia', 59.972707, 30221490]
+    ];
+
+    // Info Window Content
+    var infoWindowContent = [
+      ['<div class="info_content">' +
+        '<h3>London Eye</h3>' +
+        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' + '</div>'],
+      ['<div class="info_content">' +
+        '<h3>Palace of Westminster</h3>' +
+        '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
+        '</div>']
+    ];
+
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+    // Loop through our array of markers & place each one on the map  
+    for (i = 0; i < markers.length; i++) {
+      var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+      bounds.extend(position);
+      marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: markers[i][0]
       });
-    });
-  </script>
-  <!-- //requried-jsfiles-for owl -->
-  <script src="js/index.js"></script>
-  <script src="js/scrolling-nav.js"></script>
 
-  <script type="text/javascript" src="js/move-top.js"></script>
-  <script type="text/javascript" src="js/easing.js"></script>
-  <script type="text/javascript">
-    jQuery(document).ready(function ($) {
-      $(".scroll").click(function (event) {
-        event.preventDefault();
-        $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
-      });
-    });
-  </script>
-  <!-- start-smoth-scrolling -->
-  <!-- for bootstrap working -->
-  <script src="js/bootstrap.js"></script>
-  <!-- //for bootstrap working -->
-  <!-- here stars scrolling icon -->
-  <script type="text/javascript">
-    $(document).ready(function () {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
+      // Allow each marker to have an info window    
+      google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        return function () {
+          infoWindow.setContent(infoWindowContent[i][0]);
+          infoWindow.open(map, marker);
+        }
+      })(marker, i));
 
-      $().UItoTop({ easingType: 'easeOutQuart' });
+      // Automatically center the map fitting all markers on the screen
+      map.fitBounds(bounds);
+    }
 
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function (event) {
+      this.setZoom(14);
+      google.maps.event.removeListener(boundsListener);
     });
-  </script>
+
+  }
+</script>
   <!-- //here ends scrolling icon -->
 </body>
 

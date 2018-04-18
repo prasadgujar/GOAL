@@ -126,11 +126,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Navigation -->
   <div class="topnav" id="myTopnav">
     <a href="#home" style="font-size:24px" style="word-spacing: 70px">GOAL</a>
-    <a href="#news">Home</a>
-    <a href="#contact">Gallery</a>
-    <a href="#about">Article</a>
-    <a href="#about">Ranking</a>
-    <a href="#about">Fifa For Women</a>
+ 	<a href="home.html">Home</a>
+		<a href="gallery.html">Gallery</a>
+		<a href="article.html">Article</a>
+		<a href="fifawomen.html">Fifa For Women</a>
     <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
   </div>
   <script>
@@ -301,6 +300,7 @@ Argentina's national team is in desperate need for a new hero to emerge out of t
     <div class="card-body">
       <!--You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!-->
       <div id="map_wrapper">
+        hello
         <div id="map_canvas" class="mapping"></div>
       </div>
     </div>
@@ -328,12 +328,10 @@ Argentina's national team is in desperate need for a new hero to emerge out of t
       <div class="row">
         <div class="col-md-6 w3-footer-nav">
           <div class="links">
-            <a href="index.html">Home</a>
-            <a href="#about">About</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#team">Team</a>
-            <a href="#Winners">Testimonials</a>
-            <a href="#contact">Contact</a>
+        	<a href="home.html">Home</a>
+		<a href="gallery.html">Gallery</a>
+		<a href="article.html">Article</a>
+		<a href="fifawomen.html">Fifa For Women</a>
           </div>
         </div>
         <div class="col-md-6 w3-footer-copy">

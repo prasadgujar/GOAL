@@ -125,11 +125,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Navigation -->
     <div class="topnav" id="myTopnav">
       <a href="#home" style="font-size:24px" style="word-spacing: 70px">GOAL</a>
-      <a href="#news">Home</a>
-      <a href="#contact">Gallery</a>
-      <a href="#about">Article</a>
-      <a href="#about">Ranking</a>
-      <a href="#about">Fifa For Women</a>
+    	<a href="home.html">Home</a>
+		<a href="gallery.html">Gallery</a>
+		<a href="article.html">Article</a>
+		<a href="fifawomen.html">Fifa For Women</a>
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
     <script>
@@ -213,63 +212,125 @@ If any of the teams above remain level after applying the above criteria, their 
 The knockout stage is a single-elimination tournament in which teams play each other in one-off matches, with extra time and penalty shootouts used to decide the winner if necessary. It begins with the round of 16. This is followed by the quarter-finals, semi-finals, the third-place match (contested by the losing semi-finalists), and the final.
 </p>
      
-        </div>
-
-        <!-- Sidebar Widgets Column -->
-        <div class="col-md-4">
-
-          <!-- Search Widget -->
-          
-
-          <!-- Categories Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">Web Design</a>
-                    </li>
-                    <li>
-                      <a href="#">HTML</a>
-                    </li>
-                    <li>
-                      <a href="#">Freebies</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">JavaScript</a>
-                    </li>
-                    <li>
-                      <a href="#">CSS</a>
-                    </li>
-                    <li>
-                      <a href="#">Tutorials</a>
-                    </li>
-                  </ul>
-                </div>
+      </div>
+      
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+      
+        <!-- Search Widget -->
+      
+      
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">RANKINGS</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <!-- <li>
+                                          <a href="#">Web Design</a>
+                                      </li>
+                                      <li>
+                                          <a href="#">HTML</a>
+                                      </li>
+                                      <li>
+                                          <a href="#">Freebies</a>
+      								</li>-->
+                  <div class="container" style="width:900px;">
+      
+                    <h5>Top 10 Players</h5>
+                    <br />
+                    <div class="row">
+                      <div class="col-md-4">
+                        <select name="employee_list" id="employee_list" class="form-control">
+                          <option value="">Select Player</option>
+                          <?php 
+      								      while($row = mysqli_fetch_array($result))
+      								      {
+      								       echo '<option value="'.$row["id"].'">'.$row["name"].'</option>';
+      								      }
+      								      ?>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <button type="button" name="search" id="search" class="btn btn-info">Search</button>
+                      </div>
+                    </div>
+                    <br />
+                    <div class="table-responsive" id="employee_details" style="display:none">
+                      <table class="table table-bordered">
+                        <tr>
+                          <td width="10%" align="right">
+                            <b>Name</b>
+                          </td>
+                          <td width="90%">
+                            <span id="employee_name"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="10%" align="right">
+                            <b>Teams</b>
+                          </td>
+                          <td width="90%">
+                            <span id="employee_address"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="10%" align="right">
+                            <b>Position</b>
+                          </td>
+                          <td width="90%">
+                            <span id="employee_designation"></span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td width="10%" align="right">
+                            <b>Age</b>
+                          </td>
+                          <td width="90%">
+                            <span id="employee_age"></span>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+      
+                  </div>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <!--<li>
+                                          <a href="#">JavaScript</a>
+                                      </li>
+                                      <li>
+                                          <a href="#">CSS</a>
+                                      </li>
+                                      <li>
+                                          <a href="#">Tutorials</a>
+                                      </li>-->
+                </ul>
               </div>
             </div>
           </div>
-
-          <!-- Side Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Side Widget</h5>
-            <div class="card-body">
-              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+        </div>
+      
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">NEWS</h5>
+          <div class="card-body">
+            <!--You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!-->
+            <div id="map_wrapper">
+              <div id="map_canvas" class="mapping"></div>
             </div>
           </div>
-
         </div>
-
+      
+      </div>
+      
       </div>
       <!-- /.row -->
-
-    </div>
+      
+      </div>
     <!-- /.container -->
 </div><!-- End Main Container -->
 
@@ -284,12 +345,10 @@ The knockout stage is a single-elimination tournament in which teams play each o
 		<div class="row">
 			<div class="col-md-6 w3-footer-nav">
 				<div class="links">
-					<a href="index.html">Home</a>
-					<a href="#about">About</a>
-					<a href="#gallery">Gallery</a>
-					<a href="#team">Team</a>
-					<a href="#Winners">Testimonials</a>
-					<a href="#contact">Contact</a>
+						<a href="home.html">Home</a>
+		<a href="gallery.html">Gallery</a>
+		<a href="article.html">Article</a>
+		<a href="fifawomen.html">Fifa For Women</a>
 				</div>
 			</div>
 			<div class="col-md-6 w3-footer-copy">

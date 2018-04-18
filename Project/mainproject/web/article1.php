@@ -53,24 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="css/style1.css" rel="stylesheet" type="text/css" media="all" />
     <!-- font-awesome-icons -->
 	<link href="css/font-awesome.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style>
-		#result {
-			position: absolute;
-			width: 100%;
-			max-width: 870px;
-			cursor: pointer;
-			overflow-y: auto;
-			max-height: 400px;
-			box-sizing: border-box;
-			z-index: 1001;
-		}
-	
-		.link-class:hover {
-			background-color: #f1f1f1;
-		}
+
 </head>
 <style>
 	
@@ -140,18 +123,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     width:100%;
   }
 }
-	
+#map_wrapper {
+    height: 400px;
+}
+
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}	
 </style>
 <body>
 <!-- banner -->
 <!-- Navigation -->
 <div class="topnav" id="myTopnav">
 	<a href="#home" style="font-size:24px" style="word-spacing: 70px">GOAL</a>
-	<a href="#news">Home</a>
-	<a href="#contact">Gallery</a>
-	<a href="#about">Article</a>
-	<a href="#about">Ranking</a>
-	<a href="#about">Fifa For Women</a>
+		<a href="home.html">Home</a>
+		<a href="gallery.html">Gallery</a>
+		<a href="article.html">Article</a>
+		<a href="fifawomen.html">Fifa For Women</a>
 	<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 <script>
@@ -275,8 +264,8 @@ Portugal will take the large part of that experienced squad to Russia. Pepe is a
                                     <a href="#">Freebies</a>
 								</li>-->
 								<div class="container" style="width:900px;">
-									<h2 align="center">How to return JSON Data from PHP Script using Ajax Jquery</h2>
-									<h3 align="center">Top 10 Players</h3>
+	
+									<h5>Top 10 Players</h5>
 									<br />
 									<div class="row">
 										<div class="col-md-4">
@@ -357,6 +346,9 @@ Portugal will take the large part of that experienced squad to Russia. Pepe is a
                 <h5 class="card-header">NEWS</h5>
                 <div class="card-body">
 <!--You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!-->
+                <div id="map_wrapper">
+    <div id="map_canvas" class="mapping"></div>
+</div>
                 </div>
             </div>
 
@@ -380,12 +372,10 @@ Portugal will take the large part of that experienced squad to Russia. Pepe is a
 		<div class="row">
 			<div class="col-md-6 w3-footer-nav">
 				<div class="links">
-					<a href="index.html">Home</a>
-					<a href="#about">About</a>
-					<a href="#gallery">Gallery</a>
-					<a href="#team">Team</a>
-					<a href="#Winners">Testimonials</a>
-					<a href="#contact">Contact</a>
+					<a href="home.html">Home</a>
+		            <a href="gallery.html">Gallery</a>
+		            <a href="article.html">Article</a>
+		            <a href="fifawomen.html">Fifa For Women</a>
 				</div>
 			</div>
 			<div class="col-md-6 w3-footer-copy">
@@ -495,7 +485,76 @@ Portugal will take the large part of that experienced squad to Russia. Pepe is a
 			$().UItoTop({ easingType: 'easeOutQuart' });
 								
 			});
-	</script>
+    </script>
+    <script>
+        jQuery(function($) {
+    // Asynchronously Load the map API 
+    var script = document.createElement('script');
+    script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyB5SfpAVmmvp2q9PU7Zk-RBoIUDUnafX1c&callback=initialize";
+    document.body.appendChild(script);
+});
+
+function initialize() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        mapTypeId: 'roadmap'
+    };
+                    
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    map.setTilt(45);
+        
+    // Multiple Markers
+    var markers = [
+        ['russia', 62.333724,93.244438],
+        ['Stadion Saint Petersburg, russia', 59.972707,30221490]
+    ];
+                        
+    // Info Window Content
+    var infoWindowContent = [
+        ['<div class="info_content">' +
+        '<h3>London Eye</h3>' +
+        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' +        '</div>'],
+        ['<div class="info_content">' +
+        '<h3>Palace of Westminster</h3>' +
+        '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
+        '</div>']
+    ];
+        
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+    
+    // Loop through our array of markers & place each one on the map  
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0]
+        });
+        
+        // Allow each marker to have an info window    
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+        // Automatically center the map fitting all markers on the screen
+        map.fitBounds(bounds);
+    }
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+    });
+    
+}
+</script>
 <!-- //here ends scrolling icon -->
 </body>
 </html>

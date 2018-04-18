@@ -126,11 +126,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- Navigation -->
   <div class="topnav" id="myTopnav">
     <a href="#home" style="font-size:24px" style="word-spacing: 70px">GOAL</a>
-    <a href="#news">Home</a>
-    <a href="#contact">Gallery</a>
-    <a href="#about">Article</a>
-    <a href="#about">Ranking</a>
-    <a href="#about">Fifa For Women</a>
+	    <a href="home.html">Home</a>
+		<a href="gallery.html">Gallery</a>
+		<a href="article.html">Article</a>
+		<a href="fifawomen.html">Fifa For Women</a>
     <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
   </div>
   <script>
@@ -364,73 +363,130 @@ The three European nations England, France and Spain have all won the World Cup 
 <!-- //js -->
 <script src="js/JiSlider.js"></script>
 <script>
-			$(window).load(function () {
-				$('#JiSlider').JiSlider({color: '#fff', start: 1, reverse: false}).addClass('ff')
-			})
-		</script>
-
-<!-- //footer -->
-<!-- stats -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/jquery.countup.js"></script>
-		<script>
-			$('.counter').countUp();
-		</script>
-<!-- //stats -->
- <!-- Custom-JavaScript-File-Links -->
-        <script type="text/javascript" src="js/moment.js"></script>
-        <script type="text/javascript" src="js/moment-timezone-with-data.js"></script>
-        <script type="text/javascript" src="js/timer.js"></script>
-    <!-- //Custom-JavaScript-File-Links -->
-
-<!-- requried-jsfiles-for owl -->
- <script src="js/owl.carousel.js"></script>
-							        <script>
-									    $(document).ready(function() {
-									      $("#owl-demo2").owlCarousel({
-									        items : 1,
-									        lazyLoad : false,
-									        autoPlay : true,
-									        navigation : false,
-									        navigationText :  false,
-									        pagination : true,
-									      });
-									    });
-									  </script>
-							 <!-- //requried-jsfiles-for owl -->
- <script src="js/index.js"></script>
-  <script src="js/scrolling-nav.js"></script>  
-
+  $(document).ready(function () {
+    $('#search').click(function () {
+      var id = $('#employee_list').val();
+      if (id != '') {
+        $.ajax({
+          url: "fetch.php",
+          method: "POST",
+          data: { id: id },
+          dataType: "JSON",
+          success: function (data) {
+            $('#employee_details').css("display", "block");
+            $('#employee_name').text(data.name);
+            $('#employee_address').text(data.address);
+            $('#employee_designation').text(data.designation);
+            $('#employee_age').text(data.age);
+          }
+        })
+      }
+      else {
+        alert("Please Select Employee");
+        $('#employee_details').css("display", "none");
+      }
+    });
+  });
+</script>
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
+  jQuery(document).ready(function ($) {
+    $(".scroll").click(function (event) {
+      event.preventDefault();
+      $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+    });
+  });
 </script>
 <!-- start-smoth-scrolling -->
 <!-- for bootstrap working -->
-	<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
 <!-- here stars scrolling icon -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
-								
-			});
-	</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    /*
+      var defaults = {
+      containerID: 'toTop', // fading element id
+      containerHoverID: 'toTopHover', // fading element hover id
+      scrollSpeed: 1200,
+      easingType: 'linear' 
+      };
+    */
+
+    $().UItoTop({ easingType: 'easeOutQuart' });
+
+  });
+</script>
+<script>
+  jQuery(function ($) {
+    // Asynchronously Load the map API 
+    var script = document.createElement('script');
+    script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyB5SfpAVmmvp2q9PU7Zk-RBoIUDUnafX1c&callback=initialize";
+    document.body.appendChild(script);
+  });
+
+  function initialize() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+      mapTypeId: 'roadmap'
+    };
+
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    map.setTilt(45);
+
+    // Multiple Markers
+    var markers = [
+      ['russia', 62.333724, 93.244438],
+      ['Stadion Saint Petersburg, russia', 59.972707, 30221490]
+    ];
+
+    // Info Window Content
+    var infoWindowContent = [
+      ['<div class="info_content">' +
+        '<h3>London Eye</h3>' +
+        '<p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p>' + '</div>'],
+      ['<div class="info_content">' +
+        '<h3>Palace of Westminster</h3>' +
+        '<p>The Palace of Westminster is the meeting place of the House of Commons and the House of Lords, the two houses of the Parliament of the United Kingdom. Commonly known as the Houses of Parliament after its tenants.</p>' +
+        '</div>']
+    ];
+
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+    // Loop through our array of markers & place each one on the map  
+    for (i = 0; i < markers.length; i++) {
+      var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+      bounds.extend(position);
+      marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: markers[i][0]
+      });
+
+      // Allow each marker to have an info window    
+      google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        return function () {
+          infoWindow.setContent(infoWindowContent[i][0]);
+          infoWindow.open(map, marker);
+        }
+      })(marker, i));
+
+      // Automatically center the map fitting all markers on the screen
+      map.fitBounds(bounds);
+    }
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function (event) {
+      this.setZoom(14);
+      google.maps.event.removeListener(boundsListener);
+    });
+
+  }
+</script>
 <!-- //here ends scrolling icon -->
 </body>
 </html>
