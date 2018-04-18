@@ -300,7 +300,6 @@ Argentina's national team is in desperate need for a new hero to emerge out of t
     <div class="card-body">
       <!--You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!-->
       <div id="map_wrapper">
-        hello
         <div id="map_canvas" class="mapping"></div>
       </div>
     </div>
